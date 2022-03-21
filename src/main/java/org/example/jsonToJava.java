@@ -13,14 +13,14 @@ public class jsonToJava {
         Connection con = null;
         con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Business","root","Whisbi2022");
         Statement st = con.createStatement();
-        ResultSet result = st.executeQuery("select * from CustomerInfo where purchasedDate=CURDATE() and Location ='Asia';");
+        ResultSet result = st.executeQuery("select * from CustomerInfo where Location ='Asia';");
 
-        customerDetails cd = new customerDetails();
         ArrayList<customerDetails> customerDetailsArray = new ArrayList<customerDetails>();
         ObjectMapper om = new ObjectMapper();
 
         while(result.next()) {
 
+            customerDetails cd = new customerDetails();
             cd.setCourseName(result.getString(1));
             cd.setPurchasedDate(result.getString(2));
             cd.setAmount(result.getInt(3));
