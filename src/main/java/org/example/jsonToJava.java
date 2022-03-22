@@ -30,8 +30,8 @@ public class jsonToJava {
         }
 
         for (int i=0; i<customerDetailsArray.size(); i++)
+            //Se crea un JSON FILE (un json file por cada registro en la db)
         om.writeValue(new File("/Users/jgimenez/Josu/SDET project/src/main/java/org/example/customerInfo"+i+".json"), customerDetailsArray.get(i));
-        om.writeValue(new File("/Users/jgimenez/Josu/SDET project/src/main/java/org/example/customerInfoCompletJSON.json"), customerDetailsArray);
 
         con.close();
 
